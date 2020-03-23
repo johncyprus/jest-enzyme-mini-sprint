@@ -1,0 +1,14 @@
+.submit-wrapper {
+    max-height: 36px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ui.negative.message.warning-message {
+    margin: 0;
+    max-height: 36px;
+    display: flex;
+    align-items: center;
+}
+
