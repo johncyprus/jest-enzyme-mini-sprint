@@ -1,45 +1,56 @@
-import React from 'react';
-import {shallow} from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import {findByTestAttr} from '../testUtils';
-import ImageCard from './ImageCard';
+import { findByTestAttr, checkProps } from "../testUtils";
+import ImageCard from "./ImageCard";
 
-// ImageCard is expecting a prop object named "image"
-// We provide this as a default prop to the shallow component so that it may act as a normal component
+/*
+ - ImageCard is expecting a prop object named "image"
+ - We provide a default prop to the shallow component so that it may act as our original component
+*/
 const defaultProps = {
-    image: {
-        description: "Blorange",
-        urls: {
-            "raw":"https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMjcwNH0",
-            "full":"https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjExMjcwNH0",
-            "regular":"https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0",
-            "small":"https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0",
-            "thumb":"https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0"
-        }
+  image: {
+    description: "Blorange",
+    urls: {
+      raw:
+        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjExMjcwNH0",
+      full:
+        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjExMjcwNH0",
+      regular:
+        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0",
+      small:
+        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0",
+      thumb:
+        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0"
     }
+  }
 };
 
-const setup = (props={}) => {
-    const setupProps = {...defaultProps, ...props};
-    return shallow(<ImageCard {...setupProps} />);
+const setup = (props = {}) => {
+  const setupProps = { ...defaultProps, ...props };
+  return shallow(<ImageCard {...setupProps} />);
 };
 
-test('should render component without error', () => {
-    const wrapper = setup();
-    const component = findByTestAttr(wrapper, 'component-image-card');
-    expect(component.length).toBe(1);
+test("should render component without error", () => {
+  const wrapper = setup();
+  const component = findByTestAttr(wrapper, "component-image-card");
+  expect(component.length).toBe(1);
 });
 
-test('should render img element when image prop is provided', () => {
-    const wrapper = setup();
-    const imgElement = findByTestAttr(wrapper, 'image');
-    expect(imgElement.length).toBe(1);
+test("should render img element when image prop is provided", () => {
+  const wrapper = setup();
+  const imgElement = findByTestAttr(wrapper, "image");
+  expect(imgElement.length).toBe(1);
 });
 
-test('should have spans count of 0 in initial state', () => {
-    const wrapper = setup();
-    const initialSpansState = wrapper.state('spans');
-    expect(initialSpansState).toBe(0);
+test("should have spans count of 0 in initial state", () => {
+  const wrapper = setup();
+  const initialSpansState = wrapper.state("spans");
+  expect(initialSpansState).toBe(0);
+});
+
+test("should not throw warning with expected props", () => {
+  checkProps(ImageCard, defaultProps);
 });
 
 /*
@@ -58,7 +69,6 @@ test('should have spans count of 0 in initial state', () => {
 //     const mockRef = findByTestAttr(wrapper, 'image');
 //     wrapper.instance().imageRef.current = mockRef;
 
-   
 //     // Invoking componentDidMount
 //     wrapper.instance().componentDidMount();
 
