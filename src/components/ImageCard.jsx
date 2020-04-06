@@ -9,13 +9,12 @@ class ImageCard extends React.Component {
   }
 
   componentDidMount() {
-    // On mount, img element will receive a calculated CSS span attribute for CSS-Grid.
+    // On load, img element will receive a calculated CSS span attribute for CSS-Grid.
     this.imageRef.current.addEventListener("load", this.setSpans);
   }
 
   setSpans = () => {
     const height = this.imageRef.current.clientHeight;
-    // console.log("TESTING CURRENT:", this.imageRef);
     const spans = Math.ceil(height / 10);
     this.setState({ spans });
   };
@@ -40,7 +39,7 @@ class ImageCard extends React.Component {
 }
 
 ImageCard.propTypes = {
-  image: PropTypes.object.isRequired
+  image: PropTypes.object.isRequired,
 };
 
 export default ImageCard;
