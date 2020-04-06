@@ -4,7 +4,7 @@ import ImageCard from "./ImageCard";
 import PropTypes from "prop-types";
 
 const ImageList = ({ images }) => {
-  const imageList = images.map(image => {
+  const imageList = images.map((image) => {
     return <ImageCard key={image.id} image={image} />;
   });
 
@@ -16,7 +16,7 @@ const ImageList = ({ images }) => {
 };
 
 ImageList.propTypes = {
-  images: PropTypes.array.isRequired
+  images: PropTypes.array.isRequired,
 };
 
 export default ImageList;
