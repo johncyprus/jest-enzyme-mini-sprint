@@ -5,8 +5,8 @@ import { findByTestAttr, checkProps } from "../testUtils";
 import ImageCard from "./ImageCard";
 
 /*
- - ImageCard is expecting a prop object named "image"
- - We provide a default prop to the shallow component so that it may act as our original component
+ - ImageCard expects a prop object named "image"
+ - We provide a default prop to the shallow component so that it may mimic our original component
 */
 const defaultProps = {
   image: {
@@ -21,30 +21,32 @@ const defaultProps = {
       small:
         "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0",
       thumb:
-        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0"
-    }
-  }
+        "https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjExMjcwNH0",
+    },
+  },
 };
 
-const setup = (props = {}) => {
-  const setupProps = { ...defaultProps, ...props };
-  return shallow(<ImageCard {...setupProps} />);
+const setup = () => {
+  return shallow(<ImageCard {...defaultProps} />);
 };
+
+let wrapper;
+
+beforeEach(() => {
+  wrapper = setup();
+});
 
 test("should render component without error", () => {
-  const wrapper = setup();
   const component = findByTestAttr(wrapper, "component-image-card");
   expect(component.length).toBe(1);
 });
 
 test("should render img element when image prop is provided", () => {
-  const wrapper = setup();
   const imgElement = findByTestAttr(wrapper, "image");
   expect(imgElement.length).toBe(1);
 });
 
 test("should have spans count of 0 in initial state", () => {
-  const wrapper = setup();
   const initialSpansState = wrapper.state("spans");
   expect(initialSpansState).toBe(0);
 });
