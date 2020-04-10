@@ -10,37 +10,36 @@ You will be testing SearchSplash, a front-end image-search application, as you e
 
 - [ ] Start your tests in the interactive watch mode by running the command: `npm test`
 
-This runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The page will reload if you make edits. You will also see any lint errors in the console.
 
-**You will need an Unsplash API key to fill out `/src/config.js'. You can obtain one [here](https://unsplash.com/developers).**
+**You will need an Unsplash API key to fill out** `/src/config.js`. **You can obtain one [here](https://unsplash.com/developers).**
 
 ## Dependencies
 
 Although Create-React-App comes with Jest, we will also be making use of the following dependencies as listed in `package.json`. Familiarize yourself with the following:
 
-**enzyme** - JavaScript Testing utility for React that makes it easier to test your React Components' output.
-**jest-enzyme** - Allows connection between Jest & Enzyme.
-**enzyme-adapter-react-16** - Adapts Enzyme to the code we will be providing it.  
-**prop-types** - Runtime type checking for React props and similar objects.
+**enzyme** - JavaScript Testing utility for React that makes it easier to test your React Components' output.<br/>
+**jest-enzyme** - Allows connection between Jest & Enzyme.<br/>
+**enzyme-adapter-react-16** - Adapts Enzyme to the code we will be providing it.<br/>
+**prop-types** - Runtime type checking for React props and similar objects.<br/>
 **check-prop-types** - Manually check proptypes, returning any errors instead of logging them to console.error.
+
+## Getting Started
+
+1. Take a few minutes to interact with the application to understand its behavior.
+1. Explore the React components to see how data is being passed around the application.
+1. Think about what details you would like to assert for each React component.
+1. For example, is a specific function being invoked on componentDidMount? Is state updating when the user types into the search bar? Are child components being rendered?
 
 ## Configuration & Tools
 
 `/src/setupTests.js` configures Enzyme with our EnzymeAdapter and other options we choose.
+
 `/src/testUtils.js` contains 2 helper functions that we'll be using frequently throughout testing.
 
-## Getting Started
-
-- Take a few minutes to interact with the application to understand its behavior.
-- Explore the React components to see how data is being passed around the application.
-- Think about what details you would like to assert for each React component.
-- For example, is a specific function being invoked on componentDidMount? Is state updating when the user types into the search bar? Are child components being rendered?
-
-Start by navigating to `/src/components/ImageList.test.js`.
+After you've examined the following above, start by navigating to `/src/components/ImageList.test.js`.
 
 The **setup** function is a helper function that we build for each test file. Its purpose is to return a rendered copy of a component that we pass into it.
 
