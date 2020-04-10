@@ -28,10 +28,13 @@ Although Create-React-App comes with Jest, we will also be making use of the fol
 
 ## Getting Started
 
-1. Take a few minutes to interact with the application to understand its behavior.
-1. Explore the React components to see how data is being passed around the application.
-1. Think about what details you would like to assert for each React component.
-1. For example, is a specific function being invoked on componentDidMount? Is state updating when the user types into the search bar? Are child components being rendered?
+Take a few minutes to interact with the application to understand its behavior.
+
+Explore the React components to see how data is being passed around the application.
+
+Think about what details you would like to assert for each React component.
+
+- For example, is my function being invoked on componentDidMount? Is state updating with user action? Are child components being rendered?
 
 ## Configuration & Tools
 
@@ -62,13 +65,13 @@ To test if a component's state has changed, you will need to mimic the behavior 
 
 ## Testing React Methods & Functions
 
-Jest provides the ability to create Mock Functions such as **jest.fn()** that can track a function of your choosing. These mocks can capture various kinds of information about your function for testing, such as how many times it was called, what was passed into it, etc.
+Jest provides Mock Functions such as **jest.fn()** that can track a function of your choosing. These mocks can capture various kinds of information about your function for testing, such as how many times it was called, what was passed into it, etc.
 
-Jest's **spyOn()** method is another way to keep track of a function of your choosing. It works similarly to **jest.fn()** but may have different implementations for different scenarios.
+Jest's **spyOn()** method is another way to keep track of a function. It works similarly to **jest.fn()** but may have different implementations for different scenarios.
 
 ## Conclusions
 
-Upon examining `/src/components/ImageList.test.js`, proceed to fill out the remaining test files with what you have learned. Don't forget to look through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
+Upon examining `/src/components/ImageList.test.js`, proceed to fill out the remaining test files with what you have learned. Browse through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
 
 Once you have completed the test files for `ImageCard`, `SearchBar`, and `App`, think about what other behaviors could have been tested and what ways we could better organize them via **describe()**.
 
