@@ -1,7 +1,8 @@
 // Utility that returns an error instead of displaying a warning (the default behavior of prop-types)
 import checkPropTypes from "check-prop-types";
 
-// Searches a wrapper for elements with a data-test attribute that we set.
+// Searches a wrapper for elements with a `data-test` attribute that we set. Utilizes Enzyme's native `.find` method.
+// This allows for more accurate searching of elements within components.
 export const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
 };

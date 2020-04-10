@@ -37,18 +37,24 @@ beforeEach(() => {
 });
 
 test("should render component without error", () => {
-  /* 'findByTestAttr' searches the wrapper for an element with a specific attribute */
+  /* 'findByTestAttr' searches the wrapper for an element with a data-test attribute 'component-image-list' */
   const component = findByTestAttr(wrapper, "component-image-list");
 
   // console.log("what is component?:", component.debug());
+
+  /* If ImageList rendered properly, we can expect component to contain a node */
   expect(component.length).toBe(1);
 });
 
 test("should render 10 child components when passed an images prop", () => {
+  /* 
+    Your wrapper has several handy methods available to check for child components and more. 
+    Find more at https://enzymejs.github.io/enzyme/docs/api/shallow.html
+  */
   expect(wrapper.children().length).toBe(10);
 });
 
 test("should not throw warning with expected props", () => {
-  /* 'checkProps' will make sure that ImageList is receiving the appropriate type of props */
+  /* 'checkProps will make sure that ImageList is receiving the appropriate type of props */
   checkProps(ImageList, defaultProps);
 });
