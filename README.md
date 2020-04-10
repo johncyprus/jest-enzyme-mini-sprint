@@ -1,68 +1,77 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Jest & Enzyme Mini-Sprint
 
-## Available Scripts
+This sprint is intended to familiarize yourself with testing React utilizing Jest, a popular JS testing framework.
 
-In the project directory, you can run:
+You will be testing SearchSplash, a front-end image-search application, as you examine the application's behavior and implement various ways of asserting those behaviors.
 
-### `npm start`
+- [ ] To initialize a package.json file, from the root directory, run the command: `npm install`
 
-Runs the app in the development mode.<br />
+- [ ] Start your server by running the command: `npm start`
+
+- [ ] Start your tests in the interactive watch mode by running the command: `npm test`
+
+This runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+**You will need an Unsplash API key to fill out `/src/config.js'. You can obtain one [here](https://unsplash.com/developers).**
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Dependencies
 
-### `npm run build`
+Although Create-React-App comes with Jest, we will also be making use of the following dependencies as listed in `package.json`. Familiarize yourself with the following:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**enzyme** - JavaScript Testing utility for React that makes it easier to test your React Components' output.
+**jest-enzyme** - Allows connection between Jest & Enzyme.
+**enzyme-adapter-react-16** - Adapts Enzyme to the code we will be providing it.  
+**prop-types** - Runtime type checking for React props and similar objects.
+**check-prop-types** - Manually check proptypes, returning any errors instead of logging them to console.error.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Configuration & Tools
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`/src/setupTests.js` configures Enzyme with our EnzymeAdapter and other options we choose.
+`/src/testUtils.js` contains 2 helper functions that we'll be using frequently throughout testing.
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Take a few minutes to interact with the application to understand its behavior.
+- Explore the React components to see how data is being passed around the application.
+- Think about what details you would like to assert for each React component.
+- For example, is a specific function being invoked on componentDidMount? Is state updating when the user types into the search bar? Are child components being rendered?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Start by navigating to `/src/components/ImageList.test.js`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The **setup** function is a helper function that we build for each test file. Its purpose is to return a rendered copy of a component that we pass into it.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+These copies can be shallow render or a full DOM render depending on whether you call **shallow** or **mount**. More info about it [here](https://enzymejs.github.io/enzyme/docs/api/shallow.html). The way we build **setup** can vary between files, depending on what you need to render the component with.
 
-## Learn More
+- Example 1: ImageList's setup() will return a shallow render that uses made-up default props.
+- Example 2: SearchBar's setup() will return a shallow render that accepts some props as an parameter that we choose.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Once you have a general understanding of the skeleton code in the test file, you can start experimenting with Jest & Enzyme's various methods to assert the behavior that **test()** is asking for.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Testing Render
 
-### Code Splitting
+To test if an element or a component exists, we can use **wrapper.find** to search the component for a specific attribute. Our helper function **findByTestAttr** uses the Enzyme find method to more accurately select elements from the wrapper. Testing its existence then is as simple as making sure it has a length of 1.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Testing State
 
-### Analyzing the Bundle Size
+To test a component's state, we can use **wrapper.state()** to obtain the value of a specific state property and even console log it using **debug()**.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+To test if a component's state has changed, you will need to mimic the behavior that would cause that state change by applying several methods to the wrapper. Enzyme's **.simulate()** may offer several ways of doing so.
 
-### Making a Progressive Web App
+## Testing React Methods & Functions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Jest provides the ability to create Mock Functions such as **jest.fn()** that can track a function of your choosing. These mocks can capture various kinds of information about your function for testing, such as how many times it was called, what was passed into it, etc.
 
-### Advanced Configuration
+Jest's **spyOn()** method is another way to keep track of a function of your choosing. It works similarly to **jest.fn()** but may have different implementations for different scenarios.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Conclusions
 
-### Deployment
+Upon examining `/src/components/ImageList.test.js`, proceed to fill out the remaining test files with what you have learned. Don't forget to look through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Once you have completed the test files for `ImageCard`, `SearchBar`, and `App`, think about what other behaviors could have been tested and what ways we could better organize them via **describe()**.
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Link](https://jestjs.io/docs/en/getting-started) to Jest documentation.
+[Link](https://enzymejs.github.io/enzyme/) to Enzyme documentation.
