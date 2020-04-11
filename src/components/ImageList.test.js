@@ -23,7 +23,7 @@ const defaultProps = {
   ],
 };
 
-/* 'setup' is a helper function that returns a shallow render of ImageList */
+/* 'setup' is a helper function that returns a shallow render of ImageList. It uses defaultProps to mimic our React component. */
 const setup = () => {
   return shallow(<ImageList {...defaultProps} />);
 };
@@ -31,7 +31,7 @@ const setup = () => {
 /* Will contain the shallow component returned from 'setup' for each test */
 let wrapper;
 
-/* We use a beforeEach so that we won't have to write wrapper repeatedly on each test */
+/* We use a beforeEach so that we won't have to write wrapper repeatedly inside each test */
 beforeEach(() => {
   wrapper = setup();
 });
@@ -39,8 +39,8 @@ beforeEach(() => {
 test("should render component without error", () => {
   /* 'findByTestAttr' searches the wrapper for an element with a data-test attribute 'component-image-list' */
   const component = findByTestAttr(wrapper, "component-image-list");
-
-  // console.log("what is component?:", component.debug());
+  // console.log("What is wrapper?:", wrapper.debug());
+  // console.log("What is component?:", component.debug());
 
   /* If ImageList rendered properly, we can expect component to contain a node */
   expect(component.length).toBe(1);

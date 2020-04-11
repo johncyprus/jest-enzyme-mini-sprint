@@ -21,18 +21,11 @@ describe("Renders", () => {
     wrapper = setup();
   });
 
-  test("component without error", () => {
-    let component = findByTestAttr(wrapper, "component-app");
-    expect(component.length).toBe(1);
-  });
+  /* TO DO: Write a test to assert that the App component rendered */
 
-  test("SearchBar without error", () => {
-    expect(wrapper.find(SearchBar).length).toBe(1);
-  });
+  /* TO DO: Write a test to assert that the SearchBar component rendered inside App */
 
-  test("ImageList without error", () => {
-    expect(wrapper.find(ImageList).length).toBe(1);
-  });
+  /* TO DO: Write a test to assert that the ImageList component rendered inside App */
 });
 
 describe("On componentDidMount", () => {
@@ -47,27 +40,31 @@ describe("On componentDidMount", () => {
   });
 
   test("should run onSearchSubmit on componentDidMount", () => {
-    expect(instance.onSearchSubmit).toHaveBeenCalled();
+    expect(instance.onSearchSubmit).FILL_ME_IN;
   });
 
   test("should call onSearchSubmit with 'random' on componentDidMount", () => {
-    expect(instance.onSearchSubmit).toHaveBeenCalledWith("random");
+    expect(instance.onSearchSubmit).FILL_ME_IN;
   });
 });
 
 describe("Unsplash API call", () => {
   let wrapper;
   let mockResp = { data: results };
+
+  /* unsplashMock is a mock of the asynchronous axios function called inside App */
   let unsplashMock = jest.fn(unsplash.get);
 
   beforeEach(() => {
     wrapper = setup();
-    unsplashMock.mockResolvedValue(mockResp);
+
+    /* TO DO: Make unsplashMock resolve with some mock data to mimic the actual function */
+    unsplashMock.FILL_ME_IN;
   });
 
   test("should respond with promised data", () => {
     return unsplashMock().then((response) => {
-      expect(response.data).toEqual(mockResp.data);
+      expect(response.data).toEqual("FILL_ME_IN");
     });
   });
 });

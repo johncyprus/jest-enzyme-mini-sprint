@@ -5,8 +5,7 @@ import { findByTestAttr, checkProps } from "../testUtils";
 import ImageCard from "./ImageCard";
 
 /*
- - ImageCard expects a prop object named "image"
- - We provide a default prop to the shallow component so that it may mimic our original component
+ - ImageCard expects a prop object named "image" that is structured this way.
 */
 const defaultProps = {
   image: {
@@ -33,48 +32,24 @@ const setup = () => {
 let wrapper;
 
 beforeEach(() => {
-  wrapper = setup();
+  /*FILL_ME_IN*/
 });
 
 test("should render component without error", () => {
-  const component = findByTestAttr(wrapper, "component-image-card");
-  expect(component.length).toBe(1);
+  const component = "FILL_ME_IN";
+  expect("FILL_ME_IN").toBe("FILL_ME_IN_TOO");
 });
 
 test("should render img element when image prop is provided", () => {
-  const imgElement = findByTestAttr(wrapper, "image");
-  expect(imgElement.length).toBe(1);
+  const imgElement = "FILL_ME_IN";
+  expect("FILL_ME_IN").toBe("FILL_ME_IN_TOO");
 });
 
 test("should have spans count of 0 in initial state", () => {
-  const initialSpansState = wrapper.state("spans");
-  expect(initialSpansState).toBe(0);
+  const initialSpansState = "FILL_ME_IN";
+  expect("FILL_ME_IN").toBe("FILL_ME_IN_TOO");
 });
 
 test("should not throw warning with expected props", () => {
-  checkProps(ImageCard, defaultProps);
+  /*FILL_ME_IN*/
 });
-
-/*
- - Currently unable to create this test. 
- - Cannot invoke componentDidMount() on the instance because enzyme does not recognize .addEventListener as a function
- - Come back later and see how we can mock this test better.
-*/
-
-// test('should update spans count in state on componentDidMount', () => {
-//     const map = {};
-//     window.addEventListener = jest.fn((event, callback) => {
-//         map[event] = callback;
-//     });
-
-//     const wrapper = setup();
-//     const mockRef = findByTestAttr(wrapper, 'image');
-//     wrapper.instance().imageRef.current = mockRef;
-
-//     // Invoking componentDidMount
-//     wrapper.instance().componentDidMount();
-
-//     // Checking spans after componentDidMount
-//     const updatedSpansState = wrapper.state('spans');
-//     expect(updatedSpansState).notToBe(0);
-// });
