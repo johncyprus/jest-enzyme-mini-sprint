@@ -1,6 +1,6 @@
 # Jest & Enzyme Mini-Sprint
 
-This sprint is intended to familiarize yourself with testing React utilizing Jest, a popular JS testing framework.
+This sprint is intended to familiarize yourself with testing React using Jest, a popular JS testing framework.
 
 You will be testing SearchSplash, a front-end image-search application, as you examine the application's behavior and implement various ways of asserting those behaviors.
 
@@ -44,18 +44,18 @@ Think about what details you would like to assert for each React component.
 
 After you've examined the following above, start by navigating to `/src/components/ImageList.test.js`.
 
-The **setup** function is a helper function that we build for each test file. Its purpose is to return a rendered copy of a component that we pass into it.
+The **setup** function is a helper function that we build for each test file. Its purpose is to return a rendered copy of a component.
 
-These copies can be shallow render or a full DOM render depending on whether you call **shallow** or **mount**. More info about it [here](https://enzymejs.github.io/enzyme/docs/api/shallow.html). The way we build **setup** can vary between files, depending on what you need to render the component with.
+These copies can be a shallow render or a full DOM render depending on whether you call **shallow** or **mount**. More information about this can be found [here](https://blog.usejournal.com/testing-with-jest-and-enzyme-in-react-part-4-shallow-vs-mount-in-enzyme-d60cad73f85c). The way we build **setup** can vary between files, depending on what you need to render the component with.
 
 - Example 1: ImageList's setup() will return a shallow render that uses made-up default props.
-- Example 2: SearchBar's setup() will return a shallow render that accepts some props as an parameter that we choose.
+- Example 2: SearchBar's setup() will return a shallow render that accepts some props as a parameter.
 
-Once you have a general understanding of the skeleton code in the test file, you can start experimenting with Jest & Enzyme's various methods to assert the behavior that **test()** is asking for.
+Once you have a general understanding of the skeleton code in ImageList's test file, you can start experimenting with Jest & Enzyme's various methods to assert the behavior that **test()** is requesting.
 
 ## Testing Render
 
-To test if an element or a component exists, we can use **wrapper.find** to search the component for a specific attribute. Our helper function **findByTestAttr** uses the Enzyme find method to more accurately select elements from the wrapper. Testing its existence then is as simple as making sure it has a length of 1.
+To test if an element or a component exists, we can use **wrapper.find** to search the component for a specific attribute. Our helper function **findByTestAttr** uses the Enzyme find method to more accurately select elements from the wrapper. Testing its existence then is as simple as making sure it has a length of 1 or by using **.exists()**.
 
 ## Testing State
 
@@ -65,15 +65,15 @@ To test if a component's state has changed, you will need to mimic the behavior 
 
 ## Testing React Methods & Functions
 
-Jest provides Mock Functions such as **jest.fn()** that can track a function of your choosing. These mocks can capture various kinds of information about your function for testing, such as how many times it was called, what was passed into it, etc.
+Jest provides Mock Functions such as **jest.fn()** that can track a function of your choosing. These mocks can capture various kinds of information about your function for testing, such as how many times it was called, what arguments were passed in, etc.
 
 Jest's **spyOn()** method is another way to keep track of a function. It works similarly to **jest.fn()** but may have different implementations for different scenarios.
 
-## Conclusions
+## Conclusion
 
-Upon examining `/src/components/ImageList.test.js`, proceed to fill out the remaining test files with what you have learned. Browse through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
+After examining `/src/components/ImageList.test.js`, proceed to fill out the remaining test files with what you have learned. Browse through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
 
-Once you have completed the test files for `ImageCard`, `SearchBar`, and `App`, think about what other behaviors could have been tested and what ways we could better organize them via **describe()**.
+Once you have completed the test files for `ImageCard`, `SearchBar`, and `App`, think about what other behaviors could have been tested and what ways we could better organize them using **describe()**.
 
 [Link](https://jestjs.io/docs/en/getting-started) to Jest documentation.
 [Link](https://enzymejs.github.io/enzyme/) to Enzyme documentation.
