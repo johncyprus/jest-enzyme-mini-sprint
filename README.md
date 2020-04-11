@@ -51,7 +51,9 @@ These copies can be a shallow render or a full DOM render depending on whether y
 - Example 1: ImageList's setup() will return a shallow render that uses made-up default props.
 - Example 2: SearchBar's setup() will return a shallow render that accepts some props as a parameter.
 
-Once you have a general understanding of the skeleton code in ImageList's test file, you can start experimenting with Jest & Enzyme's various methods to assert the behavior that **test()** is requesting.
+Once you have a general understanding of the skeleton code in ImageList's test file, you can start experimenting with Jest & Enzyme's various methods to assert the behaviors in the remaining test files.
+
+Fill out the test files in this order: `ImageCard.test.js` => `SearchBar.test.js` => `App.test.js`
 
 ## Testing Render
 
