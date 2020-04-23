@@ -28,8 +28,6 @@ Although Create-React-App comes with Jest, we will also be making use of the fol
 **prop-types** - Runtime type checking for React props and similar objects.<br/>
 **check-prop-types** - Manually check proptypes, returning any errors instead of logging them to console.error.
 
----
-
 ## Step 1 - Getting Started
 
 Take a few minutes to interact with the application to understand its behavior.
@@ -87,8 +85,6 @@ The test blocks in `src/components/App.test.js` will be asserting behaviors rela
 - [ ] Write 3 tests from scratch from the instructions in the **_Renders_** test block.
 - [ ] Complete the 2 tests in the **_On componentDidMount_** test block.
 - [ ] Complete the **beforeEach()** statement and 1 test in the **_Unsplash API call_** test block.
-
----
 
 ## Testing Render
 
