@@ -4,6 +4,8 @@ This sprint is intended to familiarize yourself with testing React using Jest, a
 
 You will be testing SearchSplash, a front-end image-search application, as you examine the application's behavior and implement various ways of asserting those behaviors.
 
+- [ ] Clone the `student` branch of this repo to your local machine.
+
 - [ ] To initialize a package.json file, from the root directory, run the command: `npm install`
 
 - [ ] Start your server by running the command: `npm start`
@@ -26,7 +28,7 @@ Although Create-React-App comes with Jest, we will also be making use of the fol
 **prop-types** - Runtime type checking for React props and similar objects.<br/>
 **check-prop-types** - Manually check proptypes, returning any errors instead of logging them to console.error.
 
-## Getting Started
+## Step 1 - Getting Started
 
 Take a few minutes to interact with the application to understand its behavior.
 
@@ -34,15 +36,21 @@ Explore the React components to see how data is being passed around the applicat
 
 Think about what details you would like to assert for each React component.
 
-- For example, is my function being invoked on componentDidMount? Is state updating with user action? Are child components being rendered?
+- For example, is my function being invoked on componentDidMount? Is state updating with user action? Are child components being rendered? These are the questions you'll be asking yourself as you determine what to test in your application.
 
-## Configuration & Tools
+## Step 2 - Configuration & Tools
+
+Examine the following files.
 
 `/src/setupTests.js` configures Enzyme with our EnzymeAdapter and other options we choose.
 
 `/src/testUtils.js` contains 2 helper functions that we'll be using frequently throughout testing.
 
-After you've examined the following above, start by navigating to `/src/components/ImageList.test.js`.
+## Step 3 - ImageList
+
+After you've examined the above, navigate to `/src/components/ImageList.test.js`.
+
+This test file has been filled out already and provides some context on how you'll be approaching the remaining test files.
 
 The **setup** function is a helper function that we build for each test file. Its purpose is to return a rendered copy of a component.
 
@@ -51,9 +59,32 @@ These copies can be a shallow render or a full DOM render depending on whether y
 - Example 1: ImageList's setup() will return a shallow render that uses made-up default props.
 - Example 2: SearchBar's setup() will return a shallow render that accepts some props as a parameter.
 
-Once you have a general understanding of the skeleton code in ImageList's test file, you can start experimenting with Jest & Enzyme's various methods to assert the behaviors in the remaining test files.
+After examining ImageList's test file, proceed to fill out the remaining test files with what you have learned. Browse through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
 
-Fill out the test files in this order: `ImageCard.test.js` => `SearchBar.test.js` => `App.test.js`
+## Step 4 - ImageCard
+
+Similar to ImageList, ImageCard will also work with props. We mimic this behavior in `/src/components/ImageCard.test.js`.
+
+- [ ] Complete ImageList's **beforeEach()** statement.
+- [ ] Complete ImageList's 4 tests. You can use our provided **findByTestAttr** helper to help you accomplish these.
+
+## Step 5 - SearchBar
+
+SearchBar will receive a method prop **onSearchSubmit()** from App. We'll mock this function in `src/components/SearchBar.test.js`.
+
+This test file will also introduce you to **.simulate()** to mimic user actions on specific HTML elements.
+
+- [ ] The **_Renders_** test block has a completed **beforeEach()** statement. Complete its 4 incomplete tests.
+- [ ] Complete the **beforeEach()** statement in the **_If search term is submitted_** test block.
+- [ ] Complete the 4 tests in the **_If search term is submitted_** test block.
+
+## Step 6 - App
+
+The test blocks in `src/components/App.test.js` will be asserting behaviors related to rendering, componentDidMount, and an API call. This test file will introduce you to the **spyOn()** function and using **jest.fn()** to mock an API call.
+
+- [ ] Write 3 tests from scratch from the instructions in the **_Renders_** test block.
+- [ ] Complete the 2 tests in the **_On componentDidMount_** test block.
+- [ ] Complete the **beforeEach()** statement and 1 test in the **_Unsplash API call_** test block.
 
 ## Testing Render
 
@@ -72,8 +103,6 @@ Jest provides Mock Functions such as **jest.fn()** that can track a function of 
 Jest's **spyOn()** method is another way to keep track of a function. It works similarly to **jest.fn()** but may have different implementations for different scenarios.
 
 ## Conclusion
-
-After examining `/src/components/ImageList.test.js`, proceed to fill out the remaining test files with what you have learned. Browse through Jest and Enzyme's documentation for methods that may assist you in asserting behaviors.
 
 Once you have completed the test files for `ImageCard`, `SearchBar`, and `App`, think about what other behaviors could have been tested and what ways we could better organize them using **describe()**.
 
