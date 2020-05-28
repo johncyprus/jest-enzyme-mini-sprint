@@ -6,7 +6,7 @@ You will be testing SearchSplash, a front-end image-search application, as you e
 
 **You will need an Unsplash API key to fill out** `/src/config.js`. **You can obtain one [here](https://unsplash.com/developers).**
 
-- [ ] Clone the `student` branch of this repo to your local machine.
+- [ ] Clone the `students` branch of this repo to your local machine.
 
 - [ ] To initialize a package.json file, from the root directory, run the command: `npm install`
 
